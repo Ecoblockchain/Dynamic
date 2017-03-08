@@ -38,7 +38,7 @@ namespace GUIUtil
 {
     // Create human-readable string from date
     QString dateTimeStr(const QDateTime &datetime);
-    QString dateTimeStr(qint64 nTime);
+    QString dateTimeStr(CAmount nTime);
     // Render Dynamic addresses in monospace font
     QFont DynamicAddressFont();
     // Return a monospace font

@@ -56,7 +56,7 @@ class QUrl;
 QT_END_NAMESPACE
 
 // BIP70 max payment request size in bytes (DoS protection)
-extern const qint64 BIP70_MAX_PAYMENTREQUEST_SIZE;
+extern const CAmount BIP70_MAX_PAYMENTREQUEST_SIZE;
 
 class PaymentServer : public QObject
 {
@@ -96,7 +96,7 @@ public:
     // Verify if the payment request is expired
     static bool verifyExpired(const payments::PaymentDetails& requestDetails);
     // Verify the payment request size is valid as per BIP70
-    static bool verifySize(qint64 requestSize);
+    static bool verifySize(CAmount requestSize);
     // Verify the payment request amount is valid
     static bool verifyAmount(const CAmount& requestAmount);
 

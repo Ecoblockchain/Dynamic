@@ -964,7 +964,7 @@ void DynamicGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
     QString tooltip;
 
     QDateTime currentDate = QDateTime::currentDateTime();
-    qint64 secs = blockDate.secsTo(currentDate);
+    CAmount secs = blockDate.secsTo(currentDate);
 
     tooltip = tr("Processed %n block(s) of transaction history.", "", count);
 
@@ -993,8 +993,8 @@ void DynamicGUI::setNumBlocks(int count, const QDateTime& blockDate, double nVer
         }
         else
         {
-            qint64 years = secs / YEAR_IN_SECONDS;
-            qint64 remainder = secs % YEAR_IN_SECONDS;
+            CAmount years = secs / YEAR_IN_SECONDS;
+            CAmount remainder = secs % YEAR_IN_SECONDS;
             timeBehindText = tr("%1 and %2").arg(tr("%n year(s)", "", years)).arg(tr("%n week(s)","", remainder/WEEK_IN_SECONDS));
         }
 

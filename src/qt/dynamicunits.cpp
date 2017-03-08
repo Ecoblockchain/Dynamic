@@ -107,7 +107,7 @@ QString DynamicUnits::description(int unit)
     }
 }
 
-qint64 DynamicUnits::factor(int unit)
+CAmount DynamicUnits::factor(int unit)
 {
     switch(unit)
     {
@@ -137,12 +137,12 @@ QString DynamicUnits::format(int unit, const CAmount& nIn, bool fPlus, Separator
     // localized number formatting.
     if(!valid(unit))
         return QString(); // Refuse to format invalid unit
-    qint64 n = (qint64)nIn;
-    qint64 coin = factor(unit);
+    CAmount n = (CAmount)nIn;
+    CAmount coin = factor(unit);
     int num_decimals = decimals(unit);
-    qint64 n_abs = (n > 0 ? n : -n);
-    qint64 quotient = n_abs / coin;
-    qint64 remainder = n_abs % coin;
+    CAmount n_abs = (n > 0 ? n : -n);
+    CAmount quotient = n_abs / coin;
+    CAmount remainder = n_abs % coin;
     QString quotient_str = QString::number(quotient);
     QString remainder_str = QString::number(remainder).rightJustified(num_decimals, '0');
 

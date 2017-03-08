@@ -55,8 +55,8 @@ public:
     /** @name Reported status
        @{*/
     Status status;
-    qint64 depth;
-    qint64 open_for; /**< Timestamp if status==OpenUntilDate, otherwise number
+    CAmount depth;
+    CAmount open_for; /**< Timestamp if status==OpenUntilDate, otherwise number
                       of additional blocks that need to be mined before
                       finalization */
     /**@}*/
@@ -99,13 +99,13 @@ public:
     {
     }
 
-    TransactionRecord(uint256 hash, qint64 time):
+    TransactionRecord(uint256 hash, CAmount time):
             hash(hash), time(time), type(Other), address(""), debit(0),
             credit(0), idx(0)
     {
     }
 
-    TransactionRecord(uint256 hash, qint64 time,
+    TransactionRecord(uint256 hash, CAmount time,
                 Type type, const std::string &address,
                 const CAmount& debit, const CAmount& credit):
             hash(hash), time(time), type(type), address(address), debit(debit), credit(credit),
@@ -121,7 +121,7 @@ public:
     /** @name Immutable transaction attributes
       @{*/
     uint256 hash;
-    qint64 time;
+    CAmount time;
     Type type;
     std::string address;
     CAmount debit;

@@ -59,7 +59,7 @@ const char* BIP71_MIMETYPE_PAYMENT = "application/dynamic-payment";
 const char* BIP71_MIMETYPE_PAYMENTACK = "application/dynamic-paymentack";
 const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/dynamic-paymentrequest";
 // BIP70 max payment request size in bytes (DoS protection)
-const qint64 BIP70_MAX_PAYMENTREQUEST_SIZE = 50000;
+const CAmount BIP70_MAX_PAYMENTREQUEST_SIZE = 50000;
 
 X509_STORE* PaymentServer::certStore = NULL;
 void PaymentServer::freeCertStore()
@@ -787,7 +787,7 @@ bool PaymentServer::verifyExpired(const payments::PaymentDetails& requestDetails
     return fVerified;
 }
 
-bool PaymentServer::verifySize(qint64 requestSize)
+bool PaymentServer::verifySize(CAmount requestSize)
 {
     bool fVerified = (requestSize <= BIP70_MAX_PAYMENTREQUEST_SIZE);
     if (!fVerified) {

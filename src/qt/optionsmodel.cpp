@@ -105,7 +105,7 @@ void OptionsModel::Init(bool resetSettings)
 
     // Main
     if (!settings.contains("nDatabaseCache"))
-        settings.setValue("nDatabaseCache", (qint64)nDefaultDbCache);
+        settings.setValue("nDatabaseCache", (CAmount)nDefaultDbCache);
     if (!SoftSetArg("-dbcache", settings.value("nDatabaseCache").toString().toStdString()))
         addOverriddenOption("-dbcache");
 
